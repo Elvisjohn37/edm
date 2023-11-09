@@ -1,0 +1,10 @@
+@import './../utils/scss/_sizes';
+
+.mainLayout {
+    .mainContent {
+        min-height: $mainLayoutHeight;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

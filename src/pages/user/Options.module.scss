@@ -1,0 +1,51 @@
+@import './../../utils/scss/_sizes';
+@import './../../utils/scss/_colors';
+
+.options {
+    display: flex;
+    padding: $standardSpace 0;
+    justify-content: space-between;
+
+    .search {
+        label {
+            font-weight: 700;
+            color: $colorsPText;
+        }
+
+        input {
+            margin-left: $standardSpace;
+            border-color: transparent;
+            @include colorsSDark;
+            padding: $standardSpace;
+            outline: unset;
+            border-radius: $standardRadius;
+            box-sizing: border-box;
+            transition: $standardDuration;
+
+            &:focus {
+                // border-bottom: 2px solid darken($colorsSDark, 10%);
+                border-bottom-right-radius: unset;
+                border-bottom-left-radius: unset;
+                box-shadow: 0px 2px 4px #00000036;
+            }
+        }
+
+        .buttonSearch {
+            margin-left: $standardSpace;
+        }
+    }
+
+    .buttonOptions {
+        .addButton {
+
+        }
+
+        .saveEditUsers {
+            margin-left: $standardSpace
+        }
+    }
+
+    .disabled {
+        @include colorsSDark;
+    }
+}

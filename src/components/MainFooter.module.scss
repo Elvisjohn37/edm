@@ -1,0 +1,9 @@
+@import './../utils/scss/_sizes';
+@import './../utils/scss/_colors';
+
+.mainFooter {
+    height: $mainFooterHeight;
+    line-height: $mainFooterHeight;
+    padding: 0 $standardSpace * 5;
+    @include colorsPLight;
+}

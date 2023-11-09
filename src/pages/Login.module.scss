@@ -1,0 +1,23 @@
+@import './../utils/scss/_sizes';
+@import './../utils/scss/_colors';
+
+.login {
+
+    form {
+        min-width: 500px;
+        padding: $standardSpace * 5;
+        display: flex;
+        flex-direction: column;
+
+        input {
+            margin: $standardSpace 0;
+            width: 100%;
+            padding: $standardSpace;
+            
+        }
+
+        .button {
+            margin-top: $standardSpace;
+        }
+    }
+}

@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Juliet Oma",
+      "username": "test123",
+      "password": "Pass111**",
+      "roleId": 1
+    },
+    {
+      "id": 2,
+      "name": "James Williams",
+      "username": "jameswilly@gmail.com",
+      "password": "Pass111**",
+      "roleId": 2
+    },
+    {
+      "id": 4,
+      "name": "Ahmed Ali",
+      "username": "ahmedali012@gmail.com",
+      "password": "Pass111**",
+      "roleId": 2
+    },
+    {
+      "id": 5,
+      "name": "Ahmed Ali",
+      "username": "ahmedali012@gmail.com",
+      "password": "Pass111**",
+      "roleId": 2
+    },
+    {
+      "id": 6,
+      "name": "Ahmed Ali",
+      "username": "ahmedali012@gmail.com",
+      "password": "Pass111**",
+      "roleId": 2
+    },
+    {
+      "id": 7,
+      "name": "Ahmed Ali",
+      "username": "ahmedali012@gmail.com",
+      "password": "Pass111**",
+      "roleId": 2
+    },
+    {
+      "id": 8,
+      "name": "Ahmed Ali",
+      "username": "ahmedali012@gmail.com",
+      "password": "Pass111**",
+      "roleId": 2
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "role": "Editor"
+    },
+    {
+      "id": 2,
+      "role": "Viewer"
+    }
+  ],
+  "login": {}
+}

@@ -1,0 +1,46 @@
+@import './../utils/scss/_sizes';
+@import './../utils/scss/_colors';
+@import './../utils/scss/_keyframes';
+
+.input {
+    display: flex;
+    flex-direction: column;
+
+    input {
+        border-color: transparent;
+        @include colorsSDark;
+        padding: $standardSpace;
+        outline: unset;
+        border-radius: $standardRadius;
+        box-sizing: border-box;
+        transition: $standardDuration;
+
+        &:focus {
+            // border-bottom: 2px solid darken($colorsSDark, 10%);
+            border-bottom-right-radius: unset;
+            border-bottom-left-radius: unset;
+            box-shadow: 0px 2px 4px #00000036;
+        }
+    }
+
+    .errorMessage {
+        color: red;
+    }
+}
+
+.button {
+    padding: $standardSpace;
+    border: none;
+    border-radius: $standardRadius;
+    @include colorsPrimary;
+    transition: $standardDuration;
+
+    &:enabled {
+        cursor: pointer;
+    }
+
+    &:hover:enabled {
+        @include colorsPDark;
+        box-shadow: 0px 2px 4px darken($colorsPDark, 10%);
+    }
+}

@@ -1,0 +1,23 @@
+@import './../utils/scss/_sizes';
+@import './../utils/scss/_colors';
+
+.mainNavigation {
+    display: flex;
+    height: $mainNavigationHeight;
+    line-height: $mainNavigationHeight;
+    @include colorsPrimary;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 $standardSpace * 5;
+    font-weight: 700;
+
+    .menu {
+
+        ul {
+            li {
+                list-style: none;
+                display: inline-block;
+            }
+        }
+    }
+}

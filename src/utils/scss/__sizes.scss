@@ -1,0 +1,7 @@
+$mainNavigationHeight: 50px;
+$mainFooterHeight: 50px;
+$mainLayoutHeight: calc(100vh - ($mainNavigationHeight + $mainFooterHeight));
+
+$standardSpace: 10px;
+$standardRadius: 4px;
+$standardDuration: 0.3s;

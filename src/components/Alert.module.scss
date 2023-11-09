@@ -1,0 +1,65 @@
+@import './../utils/scss/_sizes';
+@import './../utils/scss/_colors';
+@import './../utils/scss/_keyframes';
+
+.alert {
+    min-width: 300px;
+    padding: $standardSpace 0 $standardSpace $standardSpace;
+    box-shadow: 0 2px 4px #00000094;
+    position: fixed;
+    top: $standardSpace;
+    right: $standardSpace;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    border-radius: $standardRadius;
+    opacity: 0;
+    @include slideLeft(0s);
+
+    .type {
+        padding: $standardSpace;
+        flex-grow: 10;
+    }
+
+    .text {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding-left: $standardSpace;
+        flex-grow: 80;
+        
+        .message {
+            color: #ffffffd8
+        }
+    }
+
+    .close {
+        display: flex;
+        flex-grow: 10;
+        align-self: start;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.3s;
+        padding: 3px;
+        top: 0px;
+        margin-right: 10px;
+        border-radius: $standardRadius;
+
+        &:hover {
+            background-color: lighten(red, 15%);
+        }
+    }
+
+    &.primary {
+    }
+
+    &.success {
+    }
+
+    &.warning {
+    }
+
+    &.danger {
+        background-color: red;
+    }
+}

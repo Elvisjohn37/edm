@@ -1,0 +1,62 @@
+@import './../utils/scss/_sizes';
+@import './../utils/scss/_colors';
+
+.todo {
+    min-width: 700px;
+
+    .saveChanges {
+        margin: $standardSpace 0;
+    }
+
+    table {
+        width: 100%;
+        border: none;
+        border-collapse: collapse;
+        box-shadow: 0px 2px 4px #00000048;
+
+        thead {
+            @include colorsPrimary;
+            tr {
+                th {
+                    padding: $standardSpace * 2;
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                &:nth-child(even) {
+                    @include colorsSDark;
+                }
+
+                &:nth-child(odd) {
+                    @include colorsSecondary;
+                }
+            }
+
+            td {
+                padding: $standardSpace * 2;
+
+                &:last-of-type {
+                    display: flex;
+                    justify-content: space-around;
+                }
+
+                .actionButton {
+                    cursor: pointer;
+                    transition: $standardDuration;
+                    padding: $standardSpace;
+                    border-radius: $standardRadius;
+
+                    &:hover {
+                        background-color: $colorsPrimary;
+                    }
+                }
+
+                input {
+                    width: fit-content;
+                }
+            }
+        }
+    }
+}
