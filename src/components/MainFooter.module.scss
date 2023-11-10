@@ -6,4 +6,8 @@
     line-height: $mainFooterHeight;
     padding: 0 $standardSpace * 5;
     @include colorsPLight;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 1999;
 }

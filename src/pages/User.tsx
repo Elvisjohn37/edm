@@ -4,19 +4,20 @@ import { useSelector, useDispatch } from 'react-redux'
 import { TUser } from './user/todo'
 import { useEffect } from 'react'
 import { getUsers } from '../api/requests.js'
-import { setUsers, deleteTodo, editUser } from './user/slice'
+import { setUsers, deleteUser, editUser } from './user/slice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-regular-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import { deleteTodo as deleteTodoRequest } from '../api/requests.js'
+import { deleteUser as deleteUserRequest } from '../api/requests.js'
 import Options from './user/Options'
+import classNames from 'classnames'
 
 export default function Todo() {
     const dispatch = useDispatch()
     const { users } = useSelector((state: any) => state.todo)
     const [editableUsers, setEditableUsers] = useState<number[]>([])
     const newValues = useRef<TUser[]>([])
-
+    
     useEffect(() => {
         getUsers({
             success: (response: any) => {
@@ -41,10 +42,10 @@ export default function Todo() {
     }
 
     const handleDelete = (id: number) => {
-        deleteTodoRequest({
+        deleteUserRequest({
             data: { id },
             success: (response: any) => {
-                dispatch(deleteTodo({ id }))
+                dispatch(deleteUser({ id }))
             },
             error: (response: any) => {},
             completed: (response: any) => {},
@@ -59,7 +60,7 @@ export default function Todo() {
     }
 
     return (
-        <div className={styles.todo}>
+        <div className={styles.user}>
             <Options
                 editableUsers={editableUsers}
                 removeEditable={() => {
@@ -76,40 +77,48 @@ export default function Todo() {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user: TUser) => (
-                        <tr key={user.id}>
-                            <td>{user.role.role}</td>
-                            <td className={styles.editable}>
-                                {editableUsers.includes(user.id) ? (
-                                    <input
-                                        onChange={(event) =>
-                                            handleChange(event, user.id)
-                                        }
-                                        value={
-                                            user.newValue
-                                                ? user.newValue
-                                                : user.name
-                                        }
-                                    />
-                                ) : (
-                                    user.name
-                                )}
-                            </td>
-                            <td>{user.date}</td>
-                            <td>
-                                <FontAwesomeIcon
-                                    className={styles.actionButton}
-                                    onClick={(event) => handleEdit(user)}
-                                    icon={faPenToSquare}
-                                />
-                                <FontAwesomeIcon
-                                    className={styles.actionButton}
-                                    onClick={() => handleDelete(user.id)}
-                                    icon={faTrash}
-                                />
-                            </td>
-                        </tr>
-                    ))}
+                    <div className={styles.scrollable}>
+                        <table>
+                            {users.map((user: TUser) => (
+                                <tr key={user.id}>
+                                    <td>{user.role.role}</td>
+                                    <td className={styles.editable}>
+                                        {editableUsers.includes(user.id) ? (
+                                            <input
+                                                onChange={(event) =>
+                                                    handleChange(event, user.id)
+                                                }
+                                                value={
+                                                    user.newValue
+                                                        ? user.newValue
+                                                        : user.name
+                                                }
+                                            />
+                                        ) : (
+                                            user.name
+                                        )}
+                                    </td>
+                                    <td>{user.date}</td>
+                                    <td>
+                                        <FontAwesomeIcon
+                                            className={styles.actionButton}
+                                            onClick={(event) =>
+                                                handleEdit(user)
+                                            }
+                                            icon={faPenToSquare}
+                                        />
+                                        <FontAwesomeIcon
+                                            className={classNames([styles.actionButton, styles.deleteButton])}
+                                            onClick={() =>
+                                                handleDelete(user.id)
+                                            }
+                                            icon={faTrash}
+                                        />
+                                    </td>
+                                </tr>
+                            ))}
+                        </table>
+                    </div>
                 </tbody>
             </table>
         </div>

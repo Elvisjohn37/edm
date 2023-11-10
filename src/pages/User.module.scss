@@ -1,8 +1,10 @@
 @import './../utils/scss/_sizes';
 @import './../utils/scss/_colors';
+@import './../utils/scss/_keyframes';
 
-.todo {
-    min-width: 700px;
+.user {
+    min-width: 1000px;
+    height: 80vh;
 
     .saveChanges {
         margin: $standardSpace 0;
@@ -12,10 +14,11 @@
         width: 100%;
         border: none;
         border-collapse: collapse;
-        box-shadow: 0px 2px 4px #00000048;
+        position: relative;
 
         thead {
             @include colorsPrimary;
+            text-align: left;
             tr {
                 th {
                     padding: $standardSpace * 2;
@@ -24,6 +27,30 @@
         }
 
         tbody {
+            .scrollable {
+                overflow: scroll;
+                height: 60vh;
+                width: 100%;
+                position: absolute;
+                box-shadow: 0px 2px 4px #00000048;
+                border-bottom-left-radius: $standardRadius;
+                border-bottom-right-radius: $standardRadius;
+
+                &::-webkit-scrollbar {
+                    width: 0.5em;
+                    height: 10px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    -webkit-box-shadow: inset 0 0 3px $colorsPrimary;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background-color: $colorsPrimary;
+                    outline: 1px solid $colorsPLight;
+                }
+            }
+
             tr {
                 &:nth-child(even) {
                     @include colorsSDark;
@@ -32,6 +59,7 @@
                 &:nth-child(odd) {
                     @include colorsSecondary;
                 }
+                @include fadeIn;
             }
 
             td {
@@ -50,6 +78,11 @@
 
                     &:hover {
                         background-color: $colorsPrimary;
+                        transform: scale(1.2);
+                    }
+
+                    &.deleteButton:hover {
+                        background-color: lighten(red, 30%);
                     }
                 }
 
@@ -57,6 +90,24 @@
                     width: fit-content;
                 }
             }
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        width: 95vw;
+        min-width: unset;
+
+        table tbody tr td {
+            padding: $standardSpace;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 95vw;
+        min-width: unset;
+
+        table tbody .scrollable {
+            height: 50vh;
         }
     }
 }

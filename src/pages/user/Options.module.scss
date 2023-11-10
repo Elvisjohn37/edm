@@ -48,4 +48,13 @@
     .disabled {
         @include colorsSDark;
     }
+
+    @media screen and (max-width: 600px) {
+        display: block;
+
+        .buttonOptions {
+            float: right;
+            margin: $standardSpace 0;
+        }
+    }
 }

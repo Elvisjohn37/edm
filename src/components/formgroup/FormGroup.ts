@@ -1,8 +1,9 @@
 type TInput = {
-    type: string
+    type?: string
     label: string
     validation?: TPassword
     placeholder?: string
+    className?: string;
     onChange?: (event: any) => void | undefined
 }
 

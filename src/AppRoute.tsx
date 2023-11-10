@@ -4,8 +4,6 @@ import MainLayout from './components/MainLayout'
 import { useSelector } from 'react-redux'
 import { TAppRoute, TUser } from './approute/approute'
 
-const Home = lazy(() => import('./pages/Home'))
-const About = lazy(() => import('./pages/About'))
 const PageNotFound = lazy(() => import('./pages/PageNotFound'))
 const Login = lazy(() => import('./pages/Login'))
 const Todo = lazy(() => import('./pages/User'))
@@ -13,7 +11,7 @@ const Todo = lazy(() => import('./pages/User'))
 function AppRoute() {
 
     const login: any = useSelector((state: TAppRoute) => state.login)
-    console.log(login.login)
+    
     return (
         <BrowserRouter>
             <Routes>

@@ -1,0 +1,69 @@
+@import './../utils/scss/_sizes';
+@import './../utils/scss/_colors';
+
+.modal {
+    width: 100vw;
+    height: 100vh;
+    background-color: #0000006b;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include colorsSecondary;
+        border-radius: $standardRadius;
+
+        .header {
+            padding: $standardSpace * 2 $standardSpace * 2 0 $standardSpace * 2;
+            display: flex;
+            justify-content: space-between;
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .close {
+                cursor: pointer;
+            }
+        }
+
+        .body {
+            padding: $standardSpace * 2 $standardSpace * 10 $standardSpace * 5;
+
+            form {
+                
+                .input {
+                    margin: $standardSpace * 2 0;
+                    width: 400px;
+                }
+
+                .buttonSubmit {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        
+        .content {
+            width: 90vw;
+
+            .body {
+                padding: $standardSpace * 2;
+
+                form {
+
+                    .input {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

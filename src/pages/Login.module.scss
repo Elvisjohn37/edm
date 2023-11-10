@@ -20,4 +20,11 @@
             margin-top: $standardSpace;
         }
     }
+
+    @media screen and (max-width: 600px) {
+        form {
+            min-width: 90vw;
+            padding: $standardSpace * 2;
+        }
+    }
 }

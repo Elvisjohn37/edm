@@ -9,10 +9,10 @@ const userSlice = createSlice({
         setUsers: (state, action) => {
             state.users = action.payload
         },
-        addUser: (state) => {
-            state.users.push({newValue: '', role: ''})
+        addUser: (state, action) => {
+            state.users.unshift({ ...action.payload, id: state.users.length + 1 })
         },
-        deleteTodo: (state, action) => {
+        deleteUser: (state, action) => {
             state.users = state.users.filter(
                 (st) => action.payload.id !== st.id
             )
@@ -39,7 +39,7 @@ const userSlice = createSlice({
 export const {
     setUsers,
     addUser,
-    deleteTodo,
+    deleteUser,
     editUser,
     saveEditUser,
     removedNewValue,

@@ -8,9 +8,10 @@ const Input = ({
     label,
     onChange,
     validation,
+    className
 }: TInput) => {
     return (
-        <div className={styles.input}>
+        <div className={classnames([styles.input, className])}>
             <label>{label}</label>
             <input type={type} placeholder={placeholder} onChange={onChange} />
             {!validation?.isValid && (
